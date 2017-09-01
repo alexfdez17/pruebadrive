@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+html{
+	font-family: 'Passion One', cursive;
+	background-image:
+		url("http://38.media.tumblr.com/96cf6db8223958bf9bf9b32e76ed1854/tumblr_ndhsb6pTB71ryqrhdo1_500.gif");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	font-size:35px;
+}
+.Cancel-button{
+	margin-left:45%;
+}

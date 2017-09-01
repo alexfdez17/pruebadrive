@@ -1,0 +1,170 @@
+swagger: '2.0'
+info:
+  description: Toroid's API
+  version: 1.0.0
+  title: Toroid
+  # put the contact info for your development or API team
+  contact:
+    email: angebonillachuletin@gmail.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# all paths will be relative to the basePath specified
+# basePath: /v1
+
+# tags are used for organizing operations
+tags:
+- name: developers
+  description: Operations available to regular developers
+schemes:
+- https
+paths:
+  /photos/{lat}{lon}:
+    get:
+      tags:
+      - developers
+      summary: searchs photos
+      operationId: getPhotosByLocation
+      description: searchs for photos by a given location
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: lat
+        description: the lat from a location
+        required: true
+        type: number
+      - in: path
+        name: lon
+        description: the lon from a locatin
+        type: number
+        required: true
+      responses:
+        200:
+          description: search results for the lat and lon
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PhotoSearch'
+        400:
+          description: bad input parameter
+  /location/{adress}:
+    get:
+      tags:
+      - developers
+      summary: returns the lat and lon
+      operationId: getLocation
+      description: returns the lat and lon from an adress
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: adress
+        description: the adress needed
+        required: true
+        type: string
+      responses:
+        200:
+          description: the lat and lon from the adress
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GoogleMapsSearch'
+        400:
+          description: bad input parameter
+  /post/{access_token}:  
+    post:
+      tags:
+      - developers
+      summary: adds a post on Facebook
+      operationId: publishPost
+      description: Adds a post on Facebook from the logged user
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        type: string
+        name: access_token
+        description: The user access_token
+      - in: body
+        type: string
+        name: message
+        description: The message which will be posted
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+definitions:
+  PhotoSearch:
+    type: object
+    required:
+    - photos
+    properties:
+      stat:
+        type: string
+        description: status of the search
+      photos:
+        $ref: '#/definitions/Photos'
+  Photos:
+    type: object
+    required:
+    - photo
+    properties:
+      photo:
+        type: array
+        $ref: '#/definitions/Photo'
+  Photo:
+    type: object
+    required:
+    - id
+    properties:
+      id: 
+        type: string
+  GoogleMapsSearch:
+    type: object
+    required:
+    - results
+    properties:
+      results:
+        type: array
+        $ref: '#/definitions/Results'
+      status:
+        type: string
+  Results:
+    type: object
+    required:
+    - geometry
+    properties:
+      geometry:
+        $ref: '#/definitions/Geometry'
+  Geometry:
+    type: object
+    required:
+    - location
+    properties:
+      location:
+        $ref: '#definitions/Location'
+      location_type:
+        type: string
+  Location:
+    type: object
+    required:
+    - lat
+    - lng
+    properties:
+      lat:
+        type: number
+      lng:
+        type: number
+    
+# Added by API Auto Mocking Plugin
+# host: https://toroid-97.appspot.com
+# basePath: /api
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /Toroid/API2/1.0.0

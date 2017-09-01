@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+
+html {
+	background-image:
+		url("http://orig04.deviantart.net/c186/f/2016/232/c/0/r_o_a_d_w_a_y_1920_x_1080_hd_by_epix0r-daeo2lr.png");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+h1 {
+	margin-left: 35%;
+	font-family: 'Permanent Marker', cursive;
+}
+
+th {
+	font-family: 'Permanent Marker', cursive;
+}
+td{
+	font-family: 'Comfortaa', cursive;
+}

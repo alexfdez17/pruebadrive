@@ -1,0 +1,16 @@
+{
+	"Facebook": {
+		"tokenUrl": "https://graph.facebook.com/v2.8/oauth/access_token",
+		"clientId": "128637654355368",
+		"clientSecret": "bacaf71a62822b4778f1706707fdbd88",
+		"authorizationFormUrl": "https://www.facebook.com/v2.8/dialog/oauth",
+		"scopes":["user_posts", "publish_actions"]
+	},
+	"GoogleDrive":{ 
+		"tokenUrl":"https://www.googleapis.com/oauth2/v4/token",
+		"clientId":"374077209433-aibgvi8cnt2hjtrspnmnsb358mt8mhij.apps.googleusercontent.com",
+		"clientSecret":"j68aQRvHd2HZ6Sm543g251J9" ,
+		"authorizationFormUrl":"https://accounts.google.com/o/oauth2/v2/auth",
+		"scopes":["https://www.googleapis.com/auth/drive"]
+	}
+}		

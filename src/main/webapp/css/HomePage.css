@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+h1 {
+	font-family: 'Lobster', cursive;
+	color: purple;
+	text-align: center;
+	font-size: 80px;
+	opacity: 80%;
+	margin-top: 40px;
+}
+
+body {
+	background-image: url("http://i.imgur.com/wWQl8DM.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	font-family: 'Playfair Display', serif;
+}
+
+.SearchDiv {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.searchQuery {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	font-size: 16px;
+	background-color: white;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+

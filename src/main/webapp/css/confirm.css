@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+html{
+	background-image: url("http://s.storage.akamai.coub.com/get/b31/p/coub/simple/cw_timeline_pic/e8f7dbb71a8/5c678ac5aba7bed863bd4/big_1439903153_image.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.button-block{
+	text-align:center;
+	font-size:70px;
+	margin-top:5%;
+	font-family: 'Lobster', cursive;
+	color: red;
+}

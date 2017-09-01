@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+
+
+html {
+	background-image: url("http://orig07.deviantart.net/369c/f/2017/007/c/e/synthwave_retrowave_wallpaper_by_porkskies-daum293.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.text-block {
+	text-align:center;
+	font-size:70px;
+	margin-top:5%;
+	font-family: 'Orbitron', sans-serif;
+	color: yellow;
+	   
+}
+
+.saved{
+	color:pink;
+}
+.search{
+	color:rgb(255,102,178);
+}
+.about-us{
+	color:rgb(255,0,127);
+}
+a:hover{
+	color:black;
+}

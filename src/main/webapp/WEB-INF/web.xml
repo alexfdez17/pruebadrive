@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	
+	<!-- All REST resources will be prefixed by /api  -->
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/api</param-value>
+	</context-param>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>aiss.api.ToroidApp</param-value>
+		</init-param>
+	</servlet>		
+	
+	<!-- Servlet mappings -->
+	<!-- All calls to /api/xxx will be sent to the resteasy servlet -->
+	<servlet-mapping>
+		<servlet-name>Resteasy</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+
+	
+  <servlet>
+    <description></description>
+    <display-name>SearchController</display-name>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>aiss.controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/SearchController</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>ConfirmController</display-name>
+    <servlet-name>ConfirmController</servlet-name>
+    <servlet-class>aiss.controller.ConfirmController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmController</servlet-name>
+    <url-pattern>/ConfirmController</url-pattern>
+  </servlet-mapping>
+	
+  <welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Error page -->
+    	
+  <error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+  </error-page> 
+  
+    
+  
+  
+  <servlet>        
+    <servlet-name>GoogleDriveListingServlet</servlet-name>
+    <servlet-class>aiss.controller.DriveFileListController</servlet-class>    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoogleDriveListingServlet</servlet-name>
+    <url-pattern>/googleDriveListing</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>        
+    <servlet-name>DriveFileDelete</servlet-name>
+    <servlet-class>aiss.controller.DriveFileDelete</servlet-class>    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriveFileDelete</servlet-name>
+    <url-pattern>/GoogleDriveFileDelete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>        
+    <servlet-name>DriveFileUpdate</servlet-name>
+    <servlet-class>aiss.controller.DriveFileUpdate</servlet-class>    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriveFileUpdate</servlet-name>
+    <url-pattern>/GoogleDriveFileUpdate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>        
+    <servlet-name>GoogleDriveFileNew</servlet-name>
+  	<servlet-class>aiss.controller.DriveFileNew</servlet-class>    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoogleDriveFileNew</servlet-name>
+     <url-pattern>/GoogleDriveFileNew</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>GoogleDriveAuthController</display-name>
+    <servlet-name>GoogleDriveAuthController</servlet-name>
+    <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+    <init-param>
+    	<param-name>provider</param-name>
+    	<param-value>GoogleDrive</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoogleDriveAuthController</servlet-name>
+    <url-pattern>/AuthController/GoogleDrive</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GoogleDriveOAuth2Callback</display-name>
+    <servlet-name>GoogleDriveOAuth2Callback</servlet-name>
+    <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+    <init-param>
+    	<param-name>provider</param-name>
+    	<param-value>GoogleDrive</param-value>
+    </init-param>
+    <init-param>
+    	<param-name>onSuccess</param-name>
+    	<param-value>redirect:/googleDriveListing</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoogleDriveOAuth2Callback</servlet-name>
+    <url-pattern>/oauth2callback/GoogleDrive</url-pattern>
+  </servlet-mapping>
+  
+  
+
+ 
+
+</web-app>
